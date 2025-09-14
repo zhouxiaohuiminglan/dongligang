@@ -17,13 +17,13 @@
         </el-row>
     </el-card>
     <el-card class="mt">
-        <el-table :data="tableData" style="width: 100%" v-loading="loading">
+        <el-table :data="tableData" style="width: 100%;" v-loading="loading">
             <el-table-column type="index" label="序号" width="80px"/>
             <el-table-column prop="memberCardNumber" label="会员卡号"/>
             <el-table-column prop="cardType" label="卡类型"/>
-            <el-table-column prop="create_time" label="开卡日期"/>
+            <el-table-column prop="create_time" min-width="120" label="开卡日期"/>
             <el-table-column prop="holderName" label="持有人姓名" />
-            <el-table-column prop="holderPhone" label="此有人电话" />
+            <el-table-column prop="holderPhone" min-width="120" label="持有人电话" />
             <el-table-column prop="cardBalance" label="卡余额" />
             <el-table-column prop="transactionRecords" label="消费记录">
                 <template #default="scope">
@@ -46,7 +46,7 @@
                 </template>
                 
             </el-table-column>
-            <el-table-column prop="validUntil" label="有效期至" />
+            <el-table-column prop="validUntil" min-width="120" label="有效期至" />
         </el-table>
         <el-pagination
             class="fr mt mb"
@@ -104,3 +104,8 @@
         recordList.value = list
     }
 </script>
+<style scoped lang="less">
+    :deep(.cell){
+        text-align: center;
+    }
+</style>

@@ -51,13 +51,13 @@
     </el-card>
     <el-card class="mt">
         <el-table :data="tableData" style="width: 100%" v-loading="isLoading">
-            <el-table-column type="index" width="80" label="序号"/>
-            <el-table-column prop="name" label="站点名称" />
+            <el-table-column type="index" width="60" label="序号"/>
+            <el-table-column prop="name" width="150" label="站点名称" />
             <el-table-column prop="id" label="站点ID" />
-            <el-table-column prop="city" label="城市" />
+            <el-table-column prop="city" label="城市" width="60"/>
             <el-table-column prop="fast" label="快充数" />
             <el-table-column prop="slow" label="慢充数" />
-            <el-table-column prop="status" label="充电站状态" >
+            <el-table-column prop="status" label="充电站状态" width="100">
                 <template #default="scope">
                     <el-tag v-if="scope.row.status == 2" >使用中</el-tag>
                     <el-tag v-if="scope.row.status == 3" type="success">空闲中</el-tag>
@@ -67,9 +67,9 @@
             </el-table-column>
             <el-table-column prop="now" label="正在充电" />
             <el-table-column prop="fault" label="故障数" />
-            <el-table-column prop="person" label="站点负责人" />
-            <el-table-column prop="tel" label="负责人电话" />
-            <el-table-column label="操作" >
+            <el-table-column prop="person" label="负责人" />
+            <el-table-column prop="tel" label="电话" width="120"/>
+            <el-table-column label="操作" width="150"  >
                 <template #default="scope">
                     <el-button size="small" type="primary" @click="editStation(scope.row)">编辑</el-button>
                     <el-popconfirm 
@@ -155,3 +155,8 @@
         
     }
 </script>
+<style scoped lang="less">
+    :deep(.cell){
+        text-align: center;
+    }
+</style>

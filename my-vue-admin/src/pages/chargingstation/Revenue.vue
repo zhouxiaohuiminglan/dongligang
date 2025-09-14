@@ -1,8 +1,8 @@
 <template>
     <div>
-        <el-row :gutter="20">
+        <el-row :gutter="10">
             <el-col :span="4">
-                <el-card>
+                <el-card >
                     <div class="title">
                         <div class="round">
                             <el-icon>
@@ -120,31 +120,31 @@
                 </div>
                 
                 <el-table :data="tableData" v-loading="loading">
-                    <el-table-column type="index" label="序号" width="80"></el-table-column>
-                    <el-table-column label="充电站名称" prop="name"></el-table-column>
+                    <el-table-column type="index" label="序号" width="55"></el-table-column>
+                    <el-table-column label="充电站名称" min-width="90" prop="name"></el-table-column>
                     <el-table-column label="充电站id" prop="id"></el-table-column>
                     <el-table-column label="所属城市" prop="city"></el-table-column>
-                    <el-table-column label="充电桩总数量(个)" prop="count"></el-table-column>
-                    <el-table-column label="单日总收入(元)" prop="day" sortable>
+                    <el-table-column label="总数量(个)" prop="count"></el-table-column>
+                    <el-table-column label="单日总收入(元)" prop="day" min-width="120" sortable>
                         <template #default="scope">
                             <span>{{ scope.row.day }}</span>
-                            <el-tag class="ml" :type="scope.row.percent>0?'danger':'success'">
+                            <el-tag class="ml-10" :type="scope.row.percent>0?'danger':'success'">
                                 {{scope.row.percent>0 ? '+'+ scope.row.percent+"%" : scope.row.percent+"%" }}
                             </el-tag>
                         </template>
                     </el-table-column>
-                    <el-table-column label="月度总收入(万元)" prop="month">
+                    <el-table-column label="月度总收入(万元)" prop="month" min-width="120">
                         <template #default="scope">
                             <span>{{ scope.row.month }}</span>
-                            <el-tag class="ml" :type="scope.row.mpercent>0?'danger':'success'">
+                            <el-tag class="ml-10" :type="scope.row.mpercent>0?'danger':'success'">
                                 {{scope.row.mpercent>0 ? '+'+ scope.row.mpercent+"%" : scope.row.mpercent+"%" }}
                             </el-tag>
                         </template>
                     </el-table-column>
-                    <el-table-column label="电费营收(元)" prop="electricity"></el-table-column>
-                    <el-table-column label="停车费营收(元)" prop="parkingFee"></el-table-column>
-                    <el-table-column label="服务费营收(元)" prop="serviceFee"></el-table-column>
-                    <el-table-column label="会员储备金(元)" prop="member"></el-table-column>
+                    <el-table-column label="电费(元)" prop="electricity"></el-table-column>
+                    <el-table-column label="停车费(元)" prop="parkingFee"></el-table-column>
+                    <el-table-column label="服务费(元)" prop="serviceFee"></el-table-column>
+                    <el-table-column label="储备金(元)" prop="member"></el-table-column>
                 </el-table>
                 <el-pagination
                     class="fr mt mb"
@@ -247,24 +247,25 @@
     display: flex;
     align-items: center;
     .round{
-        margin-right: 20px;
+        margin-right: 10px;
         background-color: rgb(235, 236, 245);
         border-radius: 50%;
         text-align: center;
         width: 30px;
         height: 30px;
         line-height: 30px;
-        h4{
-            color: #666;
-        }
+    }
+    h4{
+        color: #666;
+        font-size: 10px;
     }
 }
 .total{
     display: flex;
     align-items: center;
     h1{
-        font-size: 30px;
-        margin-right: 20px;
+        font-size: 26px;
+        margin-right: 10px;
     }
     .percent{
         display: inline-block;
@@ -275,5 +276,8 @@
         line-height: 20px;
         color: green;
     }
+}
+:deep(.cell){
+    text-align: center;
 }
 </style>
