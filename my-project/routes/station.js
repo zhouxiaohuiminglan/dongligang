@@ -1,0 +1,11 @@
+const Router = require('koa-router')
+const router = new Router()
+const {getStationList,addStation,editStation,deleteStation,getcgpList,getRecordList} = require('../controller/station')
+router.prefix('/station')
+router.post('/list',getStationList)
+router.post('/add',addStation)
+router.post('/edit',editStation)
+router.post('/delete',deleteStation)
+router.post('/chargingpile',getcgpList)
+router.post('/record',getRecordList)
+module.exports = router
